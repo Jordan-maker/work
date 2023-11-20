@@ -1,0 +1,114 @@
+[jordancr@naf-belle12]~% gbasf2 script_for_workService.py -p project_duplicatedJobID_v0 -s light-2212-foldex -i /belle/MC/release-04-00-03/DB00000757/MC13a/prod00009434/s00/e1003/4S/r00000/mixed/mdst/sub00/mdst_000001_prod00009434_task10020000001.root
+************************************************
+*************** Project summary ****************
+** Project name: project_duplicatedJobID_v0
+** Dataset path: /belle/user/jordancr/project_duplicatedJobID_v0
+** Steering file: script_for_workService.py
+** Job owner: jordancr @ belle (23:13:19)
+** Preferred site / SE: None / None
+** Input files for first job: LFN:/belle/MC/release-04-00-03/DB00000757/MC13a/prod00009434/s00/e1003/4S/r00000/mixed/mdst/sub00/mdst_000001_prod00009434_task10020000001.root
+** Number of input files: 1
+** Number of jobs: 1
+** Processed data (MB): 1930
+** Processed events: 200000 events
+** Estimated CPU time per job: 3334 min
+************************************************
+Are you sure to submit the project?
+Please enter Y or N: Y
+Initialize metadata for the project:
+No attribute. Initialize Dataset...
+Dataset initialization: OK
+Dataset metadata attributes already exist (30): OK
+Successfully finished.
+<=====v5r6p1=====>
+JobID = [317400203]
+
+
+[jordancr@naf-belle12]~% gb2_ds_get -f project_duplicatedJobID_v0
+
+Download 1 files from SE
+Trying to download davs://dcache-desy-webdav.desy.de:2880/pnfs/desy.de/belle/belle2/TMP/belle/user/jordancr/project_duplicatedJobID_v0/sub00/ntuple_B0_00000_job317400203_00.root to /afs/desy.de/user/j/jordancr/project_duplicatedJobID_v0/sub00/ntuple_B0_00000_job317400203_00.root
+
+Successfully downloaded files:
+/belle/user/jordancr/project_duplicatedJobID_v0/sub00/ntuple_B0_00000_job317400203_00.root in /afs/desy.de/user/j/jordancr/project_duplicatedJobID_v0/sub00
+
+
+Failed files:
+
+[jordancr@naf-belle12]~% cd project_duplicatedJobID_v0/sub00
+ntuple_B0_00000_job317400203_00.root
+
+[jordancr@naf-belle12]~% gb2_ds_get -f project_duplicatedJobID_v0
+/afs/desy.de/user/j/jordancr/project_duplicatedJobID_v0/sub00 already exists
+
+Download 1 files from SE
+Trying to download davs://dcache-desy-webdav.desy.de:2880/pnfs/desy.de/belle/belle2/TMP/belle/user/jordancr/project_duplicatedJobID_v0/sub00/ntuple_B0_00000_job317400203_01.root to /afs/desy.de/user/j/jordancr/project_duplicatedJobID_v0/sub00/ntuple_B0_00000_job317400203_01.root
+
+Successfully downloaded files:
+/belle/user/jordancr/project_duplicatedJobID_v0/sub00/ntuple_B0_00000_job317400203_01.root in /afs/desy.de/user/j/jordancr/project_duplicatedJobID_v0/sub00
+
+
+Failed files:
+
+Files with duplicated jobID, not downloaded:
+/belle/user/jordancr/project_duplicatedJobID_v0/sub00/ntuple_B0_00000_job317400203_00.root
+(See https://confluence.desy.de/display/BI/GBasf2+FAQ#GBasf2FAQ-OutputfileswithduplicatedJobID)
+
+[jordancr@naf-belle12]~% cd project_duplicatedJobID_v0/sub00 
+[jordancr@naf-belle12]~/project_duplicatedJobID_v0/sub00% ls
+ntuple_B0_00000_job317400203_00.root  ntuple_B0_00000_job317400203_01.root
+
+
+
+
+"""
+After making the respective modifications to the gb2_ds_get code, once the download process is performed again, the local directory will be scanned for jobs with duplicate jobIDs. If it finds them, it will ask the user if they want to remove them. If so, they will be eliminated keeping only the one with the last reschedule number (the last one). If not, all jobs will be kept including the last one. This will be the way it is displayed:
+"""
+
+
+
+[jordancr@naf-belle12]~% gb2_ds_get project_duplicatedJobID_v0
+/afs/desy.de/user/j/jordancr/project_duplicatedJobID_v0/sub00 already exists
+How would you like to verify the files? By file size(s) or by file checksum(c)?: 
+Please type [s] or [c]: s
+Files to download to /afs/desy.de/user/j/jordancr/project_duplicatedJobID_v0/sub00 : 3 file(s)
+Do you want to download files:
+Please type [Y] or [N]: Y
+
+Download 1 files from SE
+Trying to download davs://dcache-desy-webdav.desy.de:2880/pnfs/desy.de/belle/belle2/TMP/belle/user/jordancr/project_duplicatedJobID_v0/sub00/ntuple_B0_00000_job317400203_02.root to /afs/desy.de/user/j/jordancr/project_duplicatedJobID_v0/sub00/ntuple_B0_00000_job317400203_02.root
+
+Successfully downloaded files:
+/belle/user/jordancr/project_duplicatedJobID_v0/sub00/ntuple_B0_00000_job317400203_02.root in /afs/desy.de/user/j/jordancr/project_duplicatedJobID_v0/sub00
+
+
+Failed files:
+
+
+Files with duplicated jobID, not downloaded:
+/belle/user/jordancr/project_duplicatedJobID_v0/sub00/ntuple_B0_00000_job317400203_00.root
+/belle/user/jordancr/project_duplicatedJobID_v0/sub00/ntuple_B0_00000_job317400203_01.root
+(See https://confluence.desy.de/display/BI/GBasf2+FAQ#GBasf2FAQ-OutputfileswithduplicatedJobID)
+
+
+Files with duplicated jobID in the local directory:
+/afs/desy.de/user/j/jordancr/project_duplicatedJobID_v0/sub00/ntuple_B0_00000_job317400203_00.root
+/afs/desy.de/user/j/jordancr/project_duplicatedJobID_v0/sub00/ntuple_B0_00000_job317400203_01.root
+
+Do you want to delete jobs with duplicated JobID found locally?:
+Please type [Y] or [N]: Y
+
+Files with duplicated jobID were deleted locally.
+
+[jordancr@naf-belle12]~% cd project_duplicatedJobID_v0/sub00
+[jordancr@naf-belle12]~/project_duplicatedJobID_v0/sub00% ls
+ntuple_B0_00000_job317400203_02.root
+
+
+
+"""
+As seen in this last process, the response to delete local duplicates was Yes and therefore, only job with the last reschedule number (file_02.root) was kept and the previous ones (file_00.root and file_01.root) were deleted.
+"""
+
+
+
